@@ -54,7 +54,7 @@ header('Content-Type: text/html; charset=utf-8');
 <html>
 <head>
   <meta charset="utf-8">
-  <title>PHP + SQLite (no rewrite)</title>
+  <title>PHP + SQLite</title>
   <style>
     body { font-family: system-ui; max-width: 800px; margin: 40px auto; }
     form { display: flex; gap: 8px; margin-bottom: 20px; }
@@ -65,7 +65,7 @@ header('Content-Type: text/html; charset=utf-8');
   </style>
 </head>
 <body>
-  <h1>PHP + SQLite (no rewrite)</h1>
+  <h1>PHP + SQLite</h1>
 
   <form method="post" action="/">
     <input name="text" placeholder="Add a note…" required />
