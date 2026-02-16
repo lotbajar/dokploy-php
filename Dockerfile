@@ -1,4 +1,4 @@
-FROM php:8.3-apache
+FROM serversideup/php:8.5-frankenphp
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
@@ -12,6 +12,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN docker-php-ext-install pdo_sqlite
 
 WORKDIR /var/www/html
+USER www-data
+
+COPY --chown=www-data:www-data . .
 COPY index.php .
 COPY database ./database
 
