@@ -79,7 +79,7 @@ header('Content-Type: text/html; charset=utf-8');
     </div>
   <?php endforeach; ?>
 <?php
-php_info();
+phpinfo();
 ?>
 </body>
 </html>
