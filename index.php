@@ -78,8 +78,5 @@ header('Content-Type: text/html; charset=utf-8');
       <small><?= htmlspecialchars($n['created_at']) ?></small>
     </div>
   <?php endforeach; ?>
-<?php
-phpinfo();
-?>
 </body>
 </html>
