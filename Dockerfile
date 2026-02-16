@@ -14,4 +14,4 @@ COPY database ./database
 
 RUN chown -R www-data:www-data /var/www/html/database
 
-EXPOSE 80
+EXPOSE 8081
