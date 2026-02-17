@@ -24,10 +24,10 @@ WORKDIR /var/www/html
 
 # Copy application files (exclude database directory initially)
 COPY --chown=www-data:www-data --exclude=database --exclude=database.sqlite . .
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+
 # Copy database structure (migrations, seeders, factories)
 COPY --chown=www-data:www-data database/ database/
-
+COPY ./nginx-custom.conf /etc/nginx/conf.d/custom.conf
 # Ensure database directory exists and create SQLite file
 RUN mkdir -p /var/www/html/database \
   && touch /var/www/html/database/app.sqlite \
