@@ -1,4 +1,4 @@
-FROM serversideup/php:8.4-apache
+FROM serversideup/php:8.4-fpm-apache
 
 ENV PHP_OPCACHE_ENABLE=1
 
