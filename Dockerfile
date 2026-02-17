@@ -27,7 +27,7 @@ COPY --chown=www-data:www-data --exclude=database --exclude=database.sqlite . .
 
 # Copy database structure (migrations, seeders, factories)
 COPY --chown=www-data:www-data database/ database/
-COPY ./nginx-custom.conf /etc/nginx/conf.d/custom.conf
+
 # Ensure database directory exists and create SQLite file
 RUN mkdir -p /var/www/html/database \
   && touch /var/www/html/database/app.sqlite \
@@ -38,8 +38,9 @@ RUN mkdir -p /var/www/html/database \
 # Switch to non-root user for security
 USER www-data
 
-EXPOSE 8080
-EXPOSE 8443
+# Expose port
+EXPOSE 80
+
 # Health check (optional but recommended)
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD curl -f http://localhost/health || exit 1
