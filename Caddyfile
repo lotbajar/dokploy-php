@@ -1,0 +1,10 @@
+{
+    auto_https off
+}
+
+:80 {
+    root * /var/www/html
+    encode zstd gzip
+    php_server
+    file_server
+}
