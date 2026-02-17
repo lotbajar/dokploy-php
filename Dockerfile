@@ -18,6 +18,9 @@ WORKDIR /var/www/html
 # Copy app excluding the SQLite database file itself
 COPY --chown=www-data:www-data . .
 
+# Ensure FrankenPHP has an explicit Caddyfile available at runtime
+COPY --chown=www-data:www-data Caddyfile /etc/caddy/Caddyfile
+
 # Ensure the SQLite file exists with correct permissions
 RUN mkdir -p /var/www/html/database \
   && touch /var/www/html/database/app.sqlite \
