@@ -25,9 +25,6 @@ RUN mkdir -p /var/www/html/database \
   && chmod 664 /var/www/html/database/app.sqlite \
   && chmod 775 /var/www/html/database
 
-# Copy Caddyfile into the image so it works standalone too
-COPY Caddyfile /etc/caddy/Caddyfile
-
 USER www-data
 
 EXPOSE 80 443
