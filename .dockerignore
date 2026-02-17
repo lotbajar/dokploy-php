@@ -1,0 +1,4 @@
+database/app.sqlite
+.env
+vendor/
+node_modules/
