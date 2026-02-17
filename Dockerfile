@@ -1,19 +1,17 @@
-FROM serversideup/php:8.4-fpm-nginx
+FROM php:8.3-apache
 
-ENV PHP_OPCACHE_ENABLE=1
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libsqlite3-dev \
+    pkg-config \
+    ca-certificates \
+  && rm -rf /var/lib/apt/lists/*
 
-USER root
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends libsqlite3-dev \
-    && docker-php-ext-install pdo_sqlite \
-    && apt-get purge -y libsqlite3-dev \
-    && apt-get autoremove -y \
-    && rm -rf /var/lib/apt/lists/*
-USER www-data
+RUN docker-php-ext-install pdo_sqlite
 
 WORKDIR /var/www/html
+COPY index.php .
+COPY database ./database
 
-COPY --chown=www-data:www-data index.php .
-COPY --chown=www-data:www-data database ./database
+RUN chown -R www-data:www-data /var/www/html/database
 
 EXPOSE 80
