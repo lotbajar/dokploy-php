@@ -38,9 +38,6 @@ RUN mkdir -p /var/www/html/database \
 # Switch to non-root user for security
 USER www-data
 
-# Expose port
-EXPOSE 80
-
 # Health check (optional but recommended)
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD curl -f http://localhost/health || exit 1
